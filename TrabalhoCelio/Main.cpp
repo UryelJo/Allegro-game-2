@@ -26,10 +26,12 @@ void encerramento();
 
 int main() {
 	inicializacao();
-	al_clear_to_color(al_map_rgb(255, 255, 255));
+	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_flip_display();
 
 	al_start_timer(fps);
+
+	bool desenhar = false;
 
 	while (true) {
 		ALLEGRO_EVENT evento;
@@ -37,6 +39,10 @@ int main() {
 
 		if (evento.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
 			break;
+		}
+
+		if (evento.type == ALLEGRO_EVENT_TIMER) {
+			desenhar = true;
 		}
 
 		if (evento.type == ALLEGRO_EVENT_KEY_DOWN) {
@@ -68,11 +74,6 @@ int main() {
 			}
 		}
 
-		//Movimentação do Player
-		playerPrimario.movimentacaoEntidade();
-		playerSecundario.movimentacaoEntidade();
-		colisao();
-
 		if (evento.type == ALLEGRO_EVENT_KEY_UP) {
 			switch (evento.keyboard.keycode) {
 			case ALLEGRO_KEY_UP:
@@ -103,7 +104,15 @@ int main() {
 
 		}
 
-		atualizarLimparDesenhar();
+		if (desenhar && al_is_event_queue_empty(filaEventos)) {
+			playerPrimario.movimentacaoEntidade();
+			playerSecundario.movimentacaoEntidade();
+			colisao();
+
+			atualizarLimparDesenhar();
+
+			desenhar = false;
+		}
 
 	}
 
@@ -152,7 +161,7 @@ void inicializacao() {
 }
 
 void atualizarLimparDesenhar() {
-	al_clear_to_color(al_map_rgb(255, 255, 255));
+	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_draw_bitmap_region(playerPrimario.__imagemEntidade, 0, 0, 32, 32, playerPrimario.posicao.__posicao_x, playerPrimario.posicao.__posicao_y, 0);
 	al_draw_bitmap_region(playerSecundario.__imagemEntidade, 0, 0, 32, 32, playerSecundario.posicao.__posicao_x, playerSecundario.posicao.__posicao_y, 0);
 	al_flip_display();
