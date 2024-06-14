@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\",
+  "WorkspaceRootPath": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|solutionrelative:TrabalhoCelio\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Entidade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Entidade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|solutionrelative:TrabalhoCelio\\Entidade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Mapa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Mapa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|solutionrelative:TrabalhoCelio\\Mapa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Moveset.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Moveset.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{217B9870-D60C-4604-A74A-9ECEE6C19104}|TrabalhoCelio\\TrabalhoCelio.vcxproj|solutionrelative:TrabalhoCelio\\Moveset.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -26,60 +26,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 193,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Moveset.h",
-              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Moveset.h",
+              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Moveset.h",
               "RelativeDocumentMoniker": "TrabalhoCelio\\Moveset.h",
-              "ToolTip": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Moveset.h",
+              "ToolTip": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Moveset.h",
               "RelativeToolTip": "TrabalhoCelio\\Moveset.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-14T12:10:02.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-14T12:10:02.619Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Mapa.h",
-              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Mapa.h",
+              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Mapa.h",
               "RelativeDocumentMoniker": "TrabalhoCelio\\Mapa.h",
-              "ToolTip": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Mapa.h",
+              "ToolTip": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Mapa.h",
               "RelativeToolTip": "TrabalhoCelio\\Mapa.h",
               "ViewState": "AQIAABMAAAAAAAAAAAAiwDUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-14T12:09:52.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-14T12:09:52.778Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Entidade.h",
-              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Entidade.h",
+              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Entidade.h",
               "RelativeDocumentMoniker": "TrabalhoCelio\\Entidade.h",
-              "ToolTip": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Entidade.h",
+              "ToolTip": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Entidade.h",
               "RelativeToolTip": "TrabalhoCelio\\Entidade.h",
               "ViewState": "AQIAACEAAAAAAAAAAAAiwEMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-14T12:09:40.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-14T12:09:40.938Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Main.cpp",
-              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Main.cpp",
+              "DocumentMoniker": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Main.cpp",
               "RelativeDocumentMoniker": "TrabalhoCelio\\Main.cpp",
-              "ToolTip": "C:\\Users\\uryel\\source\\repos\\TrabalhoCelio\\TrabalhoCelio\\Main.cpp",
+              "ToolTip": "C:\\Users\\uryel\\source\\repos\\UryelJo\\Allegro-game-2\\TrabalhoCelio\\Main.cpp",
               "RelativeToolTip": "TrabalhoCelio\\Main.cpp",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAAAJcAAAAwAAAA",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAABwAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-14T12:08:10.059Z",
               "EditorCaption": ""
