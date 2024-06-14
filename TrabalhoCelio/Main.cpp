@@ -11,7 +11,6 @@
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_native_dialog.h>
 
-
 ALLEGRO_DISPLAY* telaGame = NULL;
 ALLEGRO_TIMER* fps = NULL;
 ALLEGRO_EVENT_QUEUE* filaEventos = NULL;
@@ -22,12 +21,12 @@ Mapa mapa = Mapa();
 
 void inicializacao();
 void atualizarLimparDesenhar();
-void colisao(int larguraMapa, int alturaMapa);
+void colisao();
 void encerramento();
 
 int main() {
 	inicializacao();
-	al_clear_to_color(al_map_rgb(200, 200, 200));
+	al_clear_to_color(al_map_rgb(255, 255, 255));
 	al_flip_display();
 
 	al_start_timer(fps);
@@ -72,8 +71,7 @@ int main() {
 		//Movimentação do Player
 		playerPrimario.movimentacaoEntidade();
 		playerSecundario.movimentacaoEntidade();
-		colisao(mapa.__largura__tela, mapa.__altura__tela);
-
+		colisao();
 
 		if (evento.type == ALLEGRO_EVENT_KEY_UP) {
 			switch (evento.keyboard.keycode) {
@@ -160,7 +158,7 @@ void atualizarLimparDesenhar() {
 	al_flip_display();
 }
 
-void colisao(int larguraMapa, int alturaMapa) {
+void colisao() {
 	if (playerPrimario.posicao.__posicao_x + 32 > mapa.__largura__tela) {
 		playerPrimario.posicao.__posicao_x = mapa.__largura__tela - 32;
 	}
