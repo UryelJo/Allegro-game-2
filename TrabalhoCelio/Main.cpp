@@ -15,13 +15,12 @@ ALLEGRO_DISPLAY* telaGame = NULL;
 ALLEGRO_TIMER* fps = NULL;
 ALLEGRO_EVENT_QUEUE* filaEventos = NULL;
 
-Entidade playerPrimario = Entidade();
-Entidade playerSecundario = Entidade();
+Entidade playerPrimario = Entidade(32, 32, 0, 0);
+Entidade playerSecundario = Entidade(32, 32, 0, 0);
 Mapa mapa = Mapa();
 
 void inicializacao();
 void atualizarLimparDesenhar();
-void colisao();
 void encerramento();
 
 int main() {
@@ -101,13 +100,13 @@ int main() {
 				playerSecundario.__movesetEntidade.__movendo_direita = false;
 				break;
 			}
-
 		}
 
 		if (desenhar && al_is_event_queue_empty(filaEventos)) {
 			playerPrimario.movimentacaoEntidade();
 			playerSecundario.movimentacaoEntidade();
-			colisao();
+			playerPrimario.colisaoPersonagem(mapa.__largura__tela, mapa.__altura__tela);
+			playerSecundario.colisaoPersonagem(mapa.__largura__tela, mapa.__altura__tela);
 
 			atualizarLimparDesenhar();
 
@@ -157,42 +156,13 @@ void inicializacao() {
 
 	playerPrimario.carregarImagemEntidade("Assets/teste.png");
 	playerSecundario.carregarImagemEntidade("Assets/teste.png");
-
 }
 
 void atualizarLimparDesenhar() {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
-	al_draw_bitmap_region(playerPrimario.__imagemEntidade, 0, 0, 32, 32, playerPrimario.posicao.__posicao_x, playerPrimario.posicao.__posicao_y, 0);
-	al_draw_bitmap_region(playerSecundario.__imagemEntidade, 0, 0, 32, 32, playerSecundario.posicao.__posicao_x, playerSecundario.posicao.__posicao_y, 0);
+	al_draw_bitmap_region(playerPrimario.__imagemEntidade, playerPrimario.frame.__frame_x, playerPrimario.frame.__frame_y, playerPrimario.tamanho.__largura, playerPrimario.tamanho.__altura, playerPrimario.posicao.__posicao_x, playerPrimario.posicao.__posicao_y, 0);
+	al_draw_bitmap_region(playerSecundario.__imagemEntidade, playerSecundario.frame.__frame_x, playerSecundario.frame.__frame_y, playerSecundario.tamanho.__largura, playerSecundario.tamanho.__altura, playerSecundario.posicao.__posicao_x, playerSecundario.posicao.__posicao_y, 0);
 	al_flip_display();
-}
-
-void colisao() {
-	if (playerPrimario.posicao.__posicao_x + 32 > mapa.__largura__tela) {
-		playerPrimario.posicao.__posicao_x = mapa.__largura__tela - 32;
-	}
-	if (playerPrimario.posicao.__posicao_x < 0) {
-		playerPrimario.posicao.__posicao_x = 0;
-	}
-	if (playerPrimario.posicao.__posicao_y + 32 > mapa.__altura__tela) {
-		playerPrimario.posicao.__posicao_y = mapa.__altura__tela - 32;
-	}
-	if (playerPrimario.posicao.__posicao_y < 0) {
-		playerPrimario.posicao.__posicao_y = 0;
-	}
-
-	if (playerSecundario.posicao.__posicao_x + 32 > mapa.__largura__tela) {
-		playerSecundario.posicao.__posicao_x = mapa.__largura__tela - 32;
-	}
-	if (playerSecundario.posicao.__posicao_x < 0) {
-		playerSecundario.posicao.__posicao_x = 0;
-	}
-	if (playerSecundario.posicao.__posicao_y + 32 > mapa.__altura__tela) {
-		playerSecundario.posicao.__posicao_y = mapa.__altura__tela - 32;
-	}
-	if (playerSecundario.posicao.__posicao_y < 0) {
-		playerSecundario.posicao.__posicao_y = 0;
-	}
 }
 
 void encerramento() {

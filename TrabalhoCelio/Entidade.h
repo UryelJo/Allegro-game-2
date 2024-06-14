@@ -32,8 +32,7 @@ public:
 
 	Entidade() {};
 
-	Entidade(const char* caminhoImagem, int largura, int altura, float posicao_x, float posicao_y) {
-		carregarImagemEntidade(caminhoImagem);
+	Entidade(int largura, int altura, float posicao_x, float posicao_y) {
 		frame.__frame_x = 0;
 		frame.__frame_y = 0;
 		frame.__delay_troca_frame = 0;
@@ -45,7 +44,7 @@ public:
 
 	void carregarImagemEntidade(const char* caminhoImagem);
 	void movimentacaoEntidade();
-	void movimentacaoParadaEntidade();
+	void colisaoPersonagem(int larguraMapa, int alturaMapa);
 };
 
 void Entidade::carregarImagemEntidade(const char* caminhoImagem) {
@@ -53,16 +52,31 @@ void Entidade::carregarImagemEntidade(const char* caminhoImagem) {
 }
 
 void Entidade::movimentacaoEntidade() {
-	if (__movesetEntidade.__movendo_esquerda) {
+	if (this->__movesetEntidade.__movendo_esquerda) {
 		posicao.__posicao_x -= 3;
 	}
-	if (__movesetEntidade.__movendo_direita) {
-		posicao.__posicao_x += 3;
+	if (this->__movesetEntidade.__movendo_direita) {
+		this->posicao.__posicao_x += 3;
 	}
-	if (__movesetEntidade.__movendo_cima) {
-		posicao.__posicao_y += 3;
+	if (this->__movesetEntidade.__movendo_cima) {
+		this->posicao.__posicao_y += 3;
 	}
-	if (__movesetEntidade.__movendo_baixo) {
-		posicao.__posicao_y -= 3;
+	if (this->__movesetEntidade.__movendo_baixo) {
+		this->posicao.__posicao_y -= 3;
+	}
+}
+
+void Entidade::colisaoPersonagem(int larguraMapa, int alturaMapa) {
+	if (this->posicao.__posicao_x < 0) {
+		this->posicao.__posicao_x = 0;
+	}
+	if (this->posicao.__posicao_x + this->tamanho.__largura > larguraMapa) {
+		this->posicao.__posicao_x = larguraMapa - this->tamanho.__largura;
+	}
+	if (this->posicao.__posicao_y < 0) {
+		this->posicao.__posicao_y = 0;
+	}
+	if (this->posicao.__posicao_y + this->tamanho.__altura > alturaMapa) {
+		this->posicao.__posicao_y = alturaMapa - this->tamanho.__altura;
 	}
 }
