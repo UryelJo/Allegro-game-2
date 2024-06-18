@@ -15,7 +15,7 @@ ALLEGRO_DISPLAY* telaGame = NULL;
 ALLEGRO_TIMER* fps = NULL;
 ALLEGRO_EVENT_QUEUE* filaEventos = NULL;
 
-Entidade playerPrimario = Entidade(32, 32, 0, 0);
+Entidade playerPrimario = Entidade(32, 32, 100, 0);
 Entidade playerSecundario = Entidade(32, 32, 0, 0);
 Mapa mapa = Mapa();
 
@@ -25,7 +25,7 @@ void encerramento();
 
 int main() {
 	inicializacao();
-	al_clear_to_color(al_map_rgb(0, 0, 0));
+	al_clear_to_color(al_map_rgb(255, 255, 255));
 	al_flip_display();
 
 	al_start_timer(fps);
@@ -48,15 +48,27 @@ int main() {
 			switch (evento.keyboard.keycode) {
 			case ALLEGRO_KEY_UP:
 				playerPrimario.__movesetEntidade.__movendo_baixo = true;
+				playerPrimario.__frame.__frame_x = 3;
+				playerPrimario.__frame.__frame_y = 2;
+				
 				break;
 			case ALLEGRO_KEY_DOWN:
 				playerPrimario.__movesetEntidade.__movendo_cima = true;
+				playerPrimario.__frame.__frame_x = 3;
+				playerPrimario.__frame.__frame_y = 1;
+				
 				break;
 			case ALLEGRO_KEY_LEFT:
 				playerPrimario.__movesetEntidade.__movendo_esquerda = true;
+				playerPrimario.__frame.__frame_x = 3;
+				playerPrimario.__frame.__frame_y = 0;
+				playerPrimario.__flags = ALLEGRO_FLIP_HORIZONTAL;
 				break;
 			case ALLEGRO_KEY_RIGHT:
 				playerPrimario.__movesetEntidade.__movendo_direita = true;
+				playerPrimario.__frame.__frame_x = 3;
+				playerPrimario.__frame.__frame_y = 0;
+				playerPrimario.__flags = 0;
 				break;
 			case ALLEGRO_KEY_W:
 				playerSecundario.__movesetEntidade.__movendo_baixo = true;
@@ -103,18 +115,19 @@ int main() {
 		}
 
 		if (desenhar && al_is_event_queue_empty(filaEventos)) {
+			playerPrimario.colisaoPersonagemComEntidade(&playerSecundario);
+			playerSecundario.colisaoPersonagemComEntidade(&playerPrimario);
 			playerPrimario.movimentacaoEntidade();
 			playerSecundario.movimentacaoEntidade();
-			playerPrimario.colisaoPersonagem(mapa.__largura__tela, mapa.__altura__tela);
-			playerSecundario.colisaoPersonagem(mapa.__largura__tela, mapa.__altura__tela);
-
+			playerPrimario.colisaoPersonagemComBordasMapa(mapa.__largura__tela, mapa.__altura__tela);
+			playerSecundario.colisaoPersonagemComBordasMapa(mapa.__largura__tela, mapa.__altura__tela);
+			
 			atualizarLimparDesenhar();
 
 			desenhar = false;
 		}
 
 	}
-
 	encerramento();
 }
 
@@ -154,14 +167,15 @@ void inicializacao() {
 	al_register_event_source(filaEventos, al_get_timer_event_source(fps));
 	al_register_event_source(filaEventos, al_get_keyboard_event_source());
 
-	playerPrimario.carregarImagemEntidade("Assets/teste.png");
-	playerSecundario.carregarImagemEntidade("Assets/teste.png");
+	playerPrimario.carregarImagemEntidade("Assets/PlayerTileMap.png");
+	playerSecundario.carregarImagemEntidade("Assets/PlayerTileMap.png");
 }
 
 void atualizarLimparDesenhar() {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
-	al_draw_bitmap_region(playerPrimario.__imagemEntidade, playerPrimario.frame.__frame_x, playerPrimario.frame.__frame_y, playerPrimario.tamanho.__largura, playerPrimario.tamanho.__altura, playerPrimario.posicao.__posicao_x, playerPrimario.posicao.__posicao_y, 0);
-	al_draw_bitmap_region(playerSecundario.__imagemEntidade, playerSecundario.frame.__frame_x, playerSecundario.frame.__frame_y, playerSecundario.tamanho.__largura, playerSecundario.tamanho.__altura, playerSecundario.posicao.__posicao_x, playerSecundario.posicao.__posicao_y, 0);
+	mapa.construirMapa(mapa.__representacaoMapa);
+	al_draw_bitmap_region(playerPrimario.__imagemEntidade, (playerPrimario.__frame.__frame_x * playerPrimario.__tamanho.__largura) , (playerPrimario.__frame.__frame_y * playerPrimario.__tamanho.__altura), playerPrimario.__tamanho.__largura, playerPrimario.__tamanho.__altura, playerPrimario.__posicao.__posicao_x, playerPrimario.__posicao.__posicao_y, playerPrimario.__flags);
+	al_draw_bitmap_region(playerSecundario.__imagemEntidade, playerSecundario.__frame.__frame_x, playerSecundario.__frame.__frame_y, playerSecundario.__tamanho.__largura, playerSecundario.__tamanho.__altura, playerSecundario.__posicao.__posicao_x, playerSecundario.__posicao.__posicao_y, playerSecundario.__flags);
 	al_flip_display();
 }
 
