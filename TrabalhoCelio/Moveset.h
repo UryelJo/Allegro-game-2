@@ -10,5 +10,12 @@ public:
 	bool __parado_cima = false;
 	bool __parado_baixo = false;
 
+	bool __colidindo_esquerda = false;
+	bool __colidindo_direita = false;
+	bool __colidindo_cima = false;
+	bool __colidindo_baixo = false;
+
+	int __delay_troca_frame = 0;
+
 	Moveset() {};
 };
