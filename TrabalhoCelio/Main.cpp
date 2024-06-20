@@ -105,8 +105,8 @@ int main() {
 		if (desenhar && al_is_event_queue_empty(filaEventos)) {
 			playerPrimario.movimentacaoEntidade();
 			playerSecundario.movimentacaoEntidade();
-			playerPrimario.colisaoPersonagem(mapa.__largura__tela, mapa.__altura__tela);
-			playerSecundario.colisaoPersonagem(mapa.__largura__tela, mapa.__altura__tela);
+			playerPrimario.colisaoPersonagemBordasMapa(mapa.__largura__tela, mapa.__altura__tela);
+			playerSecundario.colisaoPersonagemBordasMapa(mapa.__largura__tela, mapa.__altura__tela);
 
 			atualizarLimparDesenhar();
 
@@ -159,7 +159,7 @@ void inicializacao() {
 }
 
 void atualizarLimparDesenhar() {
-	al_clear_to_color(al_map_rgb(0, 0, 0));
+	al_clear_to_color(al_map_rgb(255, 255, 255 ));
 	al_draw_bitmap_region(playerPrimario.__imagemEntidade, playerPrimario.frame.__frame_x, playerPrimario.frame.__frame_y, playerPrimario.tamanho.__largura, playerPrimario.tamanho.__altura, playerPrimario.posicao.__posicao_x, playerPrimario.posicao.__posicao_y, 0);
 	al_draw_bitmap_region(playerSecundario.__imagemEntidade, playerSecundario.frame.__frame_x, playerSecundario.frame.__frame_y, playerSecundario.tamanho.__largura, playerSecundario.tamanho.__altura, playerSecundario.posicao.__posicao_x, playerSecundario.posicao.__posicao_y, 0);
 	al_flip_display();

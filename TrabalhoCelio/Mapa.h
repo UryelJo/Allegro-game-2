@@ -46,7 +46,7 @@ public:
 
 void Mapa::construirMapa(int mapa[30][40], int larguraMapa, int alturaMapa) {
 	for (int x = 0; x < 40; x++) {
-		for (int y = 0; y < 30; y++) {
+		for (int y = 0; y < 25; y++) {
 			if (mapa[y][x] == 0) {
 			}
 		}

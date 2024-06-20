@@ -26,6 +26,8 @@ public:
 	Tamanho tamanho;
 	Posicao posicao;
 
+	bool __vivo = true;
+
 	int __flags = 0;
 
 	Moveset __movesetEntidade;
@@ -44,7 +46,7 @@ public:
 
 	void carregarImagemEntidade(const char* caminhoImagem);
 	void movimentacaoEntidade();
-	void colisaoPersonagem(int larguraMapa, int alturaMapa);
+	void colisaoPersonagemBordasMapa(int larguraMapa, int alturaMapa);
 };
 
 void Entidade::carregarImagemEntidade(const char* caminhoImagem) {
@@ -52,21 +54,21 @@ void Entidade::carregarImagemEntidade(const char* caminhoImagem) {
 }
 
 void Entidade::movimentacaoEntidade() {
-	if (this->__movesetEntidade.__movendo_esquerda) {
+	if (this->__movesetEntidade.__movendo_esquerda && __vivo) {
 		posicao.__posicao_x -= 3;
 	}
-	if (this->__movesetEntidade.__movendo_direita) {
+	if (this->__movesetEntidade.__movendo_direita && __vivo) {
 		this->posicao.__posicao_x += 3;
 	}
-	if (this->__movesetEntidade.__movendo_cima) {
+	if (this->__movesetEntidade.__movendo_cima && __vivo) {
 		this->posicao.__posicao_y += 3;
 	}
-	if (this->__movesetEntidade.__movendo_baixo) {
+	if (this->__movesetEntidade.__movendo_baixo && __vivo) {
 		this->posicao.__posicao_y -= 3;
 	}
 }
 
-void Entidade::colisaoPersonagem(int larguraMapa, int alturaMapa) {
+void Entidade::colisaoPersonagemBordasMapa(int larguraMapa, int alturaMapa) {
 	if (this->posicao.__posicao_x < 0) {
 		this->posicao.__posicao_x = 0;
 	}
