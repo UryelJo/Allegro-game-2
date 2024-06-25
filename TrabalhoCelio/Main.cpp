@@ -136,7 +136,6 @@ int main() {
 
 			desenhar = false;
 		}
-
 	}
 
 	encerramento();
