@@ -19,33 +19,33 @@ struct Posicao {
 
 class Entidade {
 
-public:
-	ALLEGRO_BITMAP* __imagemEntidade = NULL;
+	public:
+		ALLEGRO_BITMAP* __imagemEntidade = NULL;
 
-	Frame __frame;
-	Tamanho __tamanho;
-	Posicao __posicao;
+		Frame __frame;
+		Tamanho __tamanho;
+		Posicao __posicao;
 
-	int __flags = 0;
+		int __flags = 0;
 
-	Moveset __movesetEntidade;
+		Moveset __movesetEntidade;
 
-	Entidade() {};
+		Entidade() {};
 
-	Entidade(int largura, int altura, float posicao_x, float posicao_y) {
-		__frame.__frame_x = 0;
-		__frame.__frame_y = 0;
-		__frame.__delay_troca_frame = 0;
-		__tamanho.__largura = largura;
-		__tamanho.__altura = altura;
-		__posicao.__posicao_x = posicao_x;
-		__posicao.__posicao_y = posicao_y;
-	}
+		Entidade(int largura, int altura, float posicao_x, float posicao_y) {
+			__frame.__frame_x = 0;
+			__frame.__frame_y = 0;
+			__frame.__delay_troca_frame = 0;
+			__tamanho.__largura = largura;
+			__tamanho.__altura = altura;
+			__posicao.__posicao_x = posicao_x;
+			__posicao.__posicao_y = posicao_y;
+		}
 
-	void carregarImagemEntidade(const char* caminhoImagem);
-	void movimentacaoEntidade();
-	void colisaoPersonagemComBordasMapa(int larguraMapa, int alturaMapa);
-	void colisaoPersonagemComEntidade(Entidade* entidade);
+		void carregarImagemEntidade(const char* caminhoImagem);
+		void movimentacaoEntidade();
+		void colisaoPersonagemComBordasMapa(int larguraMapa, int alturaMapa);
+		void colisaoPersonagemComEntidade(Entidade* entidade);
 };
 
 void Entidade::carregarImagemEntidade(const char* caminhoImagem) {

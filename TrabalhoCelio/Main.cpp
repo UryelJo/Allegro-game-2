@@ -15,8 +15,8 @@ ALLEGRO_DISPLAY* telaGame = NULL;
 ALLEGRO_TIMER* fps = NULL;
 ALLEGRO_EVENT_QUEUE* filaEventos = NULL;
 
-Entidade playerPrimario = Entidade(32, 32, 100, 0);
-Entidade playerSecundario = Entidade(32, 32, 0, 0);
+Entidade playerPrimario = Entidade(32, 32, 300, 50);
+Entidade playerSecundario = Entidade(32, 32, 250, 60);
 Mapa mapa = Mapa();
 
 void inicializacao();
@@ -72,15 +72,25 @@ int main() {
 				break;
 			case ALLEGRO_KEY_W:
 				playerSecundario.__movesetEntidade.__movendo_baixo = true;
+				playerSecundario.__frame.__frame_x = 3;
+				playerSecundario.__frame.__frame_y = 2;
 				break;
 			case ALLEGRO_KEY_S:
 				playerSecundario.__movesetEntidade.__movendo_cima = true;
+				playerSecundario.__frame.__frame_x = 3;
+				playerSecundario.__frame.__frame_y = 1;
 				break;
 			case ALLEGRO_KEY_A:
 				playerSecundario.__movesetEntidade.__movendo_esquerda = true;
+				playerSecundario.__frame.__frame_x = 3;
+				playerSecundario.__frame.__frame_y = 0;
+				playerSecundario.__flags = ALLEGRO_FLIP_HORIZONTAL;
 				break;
 			case ALLEGRO_KEY_D:
 				playerSecundario.__movesetEntidade.__movendo_direita = true;
+				playerSecundario.__frame.__frame_x = 3;
+				playerSecundario.__frame.__frame_y = 0;
+				playerSecundario.__flags = 0;
 				break;
 			}
 		}
@@ -116,10 +126,10 @@ int main() {
 
 		if (desenhar && al_is_event_queue_empty(filaEventos)) {
 			playerPrimario.colisaoPersonagemComEntidade(&playerSecundario);
-			playerSecundario.colisaoPersonagemComEntidade(&playerPrimario);
 			playerPrimario.movimentacaoEntidade();
-			playerSecundario.movimentacaoEntidade();
 			playerPrimario.colisaoPersonagemComBordasMapa(mapa.__largura__tela, mapa.__altura__tela);
+			playerSecundario.colisaoPersonagemComEntidade(&playerPrimario);
+			playerSecundario.movimentacaoEntidade();
 			playerSecundario.colisaoPersonagemComBordasMapa(mapa.__largura__tela, mapa.__altura__tela);
 			
 			atualizarLimparDesenhar();
@@ -128,6 +138,7 @@ int main() {
 		}
 
 	}
+
 	encerramento();
 }
 
@@ -169,13 +180,14 @@ void inicializacao() {
 
 	playerPrimario.carregarImagemEntidade("Assets/PlayerTileMap.png");
 	playerSecundario.carregarImagemEntidade("Assets/PlayerTileMap.png");
+	mapa.carregarImagemChao("Assets/Chao.png");
 }
 
 void atualizarLimparDesenhar() {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 	mapa.construirMapa(mapa.__representacaoMapa);
 	al_draw_bitmap_region(playerPrimario.__imagemEntidade, (playerPrimario.__frame.__frame_x * playerPrimario.__tamanho.__largura) , (playerPrimario.__frame.__frame_y * playerPrimario.__tamanho.__altura), playerPrimario.__tamanho.__largura, playerPrimario.__tamanho.__altura, playerPrimario.__posicao.__posicao_x, playerPrimario.__posicao.__posicao_y, playerPrimario.__flags);
-	al_draw_bitmap_region(playerSecundario.__imagemEntidade, playerSecundario.__frame.__frame_x, playerSecundario.__frame.__frame_y, playerSecundario.__tamanho.__largura, playerSecundario.__tamanho.__altura, playerSecundario.__posicao.__posicao_x, playerSecundario.__posicao.__posicao_y, playerSecundario.__flags);
+	al_draw_bitmap_region(playerSecundario.__imagemEntidade, (playerSecundario.__frame.__frame_x * playerSecundario.__tamanho.__largura), (playerSecundario.__frame.__frame_y * playerSecundario.__tamanho.__altura), playerSecundario.__tamanho.__largura, playerSecundario.__tamanho.__altura, playerSecundario.__posicao.__posicao_x, playerSecundario.__posicao.__posicao_y, playerSecundario.__flags);
 	al_flip_display();
 }
 
